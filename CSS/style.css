@@ -12,7 +12,6 @@
     width: 90%;
     gap: 10%;
     margin: 40px;
-    padding: 1px;
     
 }
 .font_p{
@@ -30,6 +29,7 @@
     padding: 1px;
     
 } 
+
 #learnM {
     width: 65px;  
     margin: 40px;
@@ -60,7 +60,7 @@
     color: #B8B4B6;
 }
 #about :hover{
-    color: #AAA7A9;
+    color: #767275;
 }
 #blogs{
     
@@ -68,34 +68,72 @@
     color: #AAA7A9;
 }
 #blogs :hover{
-    color: #AAA7A9;
+    color: #767275;
 }
 #event{
     text-decoration: none;
     color: #8F8C8E;
 }
 #event :hover{
-    color: #C1BCBE;
+    color: #767275;
 }
 .button {
-    background-color: #b79494; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px ;
-  }
-  .button:hover {
-    transform: scale(0.75);
-  }
-#image{
 
-    margin: 40px;   
+        text-decoration: none;
+        position: relative;
+        border: none;
+       
+        font-family: inherit;
+        color: #fff;
+        width: 9em;
+        height: 23px;
+        
+        text-align: center;
+        background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+        background-size: 300%;
+        border-radius: 30px;
+        z-index: 1;
+      }
+      
+.button:hover {
+        animation: ani 8s linear infinite;
+        border: none;
+      }
+      
+      @keyframes ani {
+        0% {
+          background-position: 0%;
+        }
+      
+        100% {
+          background-position: 400%;
+        }
+      }
+      
+.button:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        z-index: -1;
+        background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+        background-size: 400%;
+        border-radius: 35px;
+        transition: 1s;
+      }
+      
+.button:hover::before {
+        filter: blur(20px);
+      }
+      
+.button:active {
+        background: linear-gradient(32deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+      }
+
+#image{
+    margin: 40px;  
 }
 a{
     cursor: pointer;
@@ -106,4 +144,108 @@ a:hover{
     color: #fff;
     text-shadow:0 0 25px #4de2ed,0 0 50px #30e1ea,0 0 100px #08e1ed;
 }
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+   }
+   
+   .cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #b1dae7;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+   }
+   
+   .cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #234567;
+   }
+   
+   .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #234567;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+   }
+   
+   .cta:hover:before {
+    width: 100%;
+    background: #b1dae7;
+   }
+   
+   .cta:hover svg {
+    transform: translateX(0);
+   }
+   
+   .cta:active {
+    transform: scale(0.95);
+   }
+   
+   .input-container {
+    width: 540px;
+    left: 1100px;
+    bottom: 550px;
+    margin: 40px;
+    position: relative;
+  }
+  
+  .icon {
+    position: absolute;
+    right: 10px;
+  
+    top: calc(50% + 5px);
+    transform: translateY(calc(-50% - 5px));
+  }
+  
+  .input {
+    width: 100%;
+    height: 20px;
+    padding: 10px;
 
+    transition: .2s linear;
+    border: 2.5px solid black;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .input:focus {
+    outline: none;
+    border: 0.5px solid black;
+    box-shadow: -5px -5px 0px black;
+  }
+  
+  .input-container:hover > .icon {
+    animation: anim 1s linear infinite;
+  }
+  
+  @keyframes anim {
+    0%,
+    100% {
+      transform: translateY(calc(-50% - 5px)) scale(1);
+    }
+  
+    50% {
+      transform: translateY(calc(-50% - 5px)) scale(1.1);
+    }
+  }
